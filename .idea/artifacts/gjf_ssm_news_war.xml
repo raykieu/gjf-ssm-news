@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="gjf-ssm-news:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="gjf-ssm-news-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="gjf-ssm-news:war exploded" />
+    </root>
+  </artifact>
+</component>

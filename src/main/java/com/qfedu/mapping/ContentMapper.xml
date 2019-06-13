@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.ContentDao">
+    <select id="selectContent" parameterType="Integer" resultType="com.qfedu.pojo.Contents">
+        select * from content where nid=#{id}
+    </select>
+    <insert id="insertContent" parameterType="com.qfedu.pojo.Contents" >
+        insert into content (id,content,critic,nid) VALUES (null,#{content},#{critic},#{nid})
+    </insert>
+    <delete id="deleteContent" parameterType="Integer" >
+        delete from content where id=#{id}
+    </delete>
+</mapper>

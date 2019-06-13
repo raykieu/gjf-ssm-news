@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.NewsDao">
+    <select id="selectAll" resultType="com.qfedu.pojo.News" parameterType="String">
+        select * from news where title like concat ('%',#{keyword},'%')
+        order by createdate DESC
+
+    </select>
+    <insert id="insertNews" parameterType="news">
+        insert into news (id,title,summary,author,createdate) VALUES (null,#{title},#{summary},#{author},#{createdate})
+    </insert>
+    <delete id="deleteNews" parameterType="Integer">
+        delete from news where id=#{id}
+    </delete>
+    <select id="findNewsById" parameterType="Integer" resultType="news">
+        select * from news where id=#{id}
+    </select>
+    <update id="updateNews" parameterType="com.qfedu.pojo.News" >
+        update news
+        <set>
+         <if test="title!=null">
+             title=#{title},
+        </if>
+        <if test="summary!=null">
+           summary=#{summary},
+        </if>
+        <if test="author!=null">
+             author=#{author}
+        </if>
+        </set>
+        where id=#{id}
+    </update>
+</mapper>
